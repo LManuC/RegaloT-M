@@ -91,6 +91,12 @@ html, body {
     padding: 40px 20px;
 }
 
+.heladeras h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
 .heladeras-image {
     background-image: url("img/heladeras.jpg");
     background-repeat: no-repeat;
@@ -176,10 +182,6 @@ button:disabled {
 
 @media (max-width: 768px) {
 
-    .heladeras-content h2{
-        position: relative;
-    }
-
     /* 1️⃣ Pasar de 2 columnas a stack vertical */
     .heladeras-grid {
         display: flex;
@@ -198,6 +200,9 @@ button:disabled {
 
     /* 3️⃣ Contenido abajo, sin centrado vertical */
     .heladeras-content {
+        min-height: calc(100svh - 35svh);
+        display: flex;
+        flex-direction: column;
         flex: none;
         height: 100%;
         justify-content: flex-start;
@@ -220,8 +225,7 @@ button:disabled {
 
     /* 5️⃣ Botón natural, debajo de todo */
     #submitBtn {
-        width: 100%;
-        max-width: 320px;
-        /* margin: auto; */
+        margin-top: auto;
+        margin-bottom: 20px;
     }
 }
