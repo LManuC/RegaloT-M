@@ -21,15 +21,14 @@ html, body {
 
 
 .section {
-    min-height: 100svh;
+    height: 100svh;
     width: 100%;
     scroll-snap-align: start;
 }
 
-.section.heladeras {
-    height: 100vh;
+/* .section.heladeras {
     overflow: hidden;
-}
+} */
 /* ====== HOTEL ====== */
 
 .hotel {
@@ -63,8 +62,8 @@ html, body {
 .heladeras {
     display: flex;
     flex-direction: column;
-    background-size: contain;
-    background-color: #DBB394; /* color tomado de la imagen */
+    /* background-size: contain;
+    background-color: #DBB394; */
 
     padding: 0;
     position: relative;
@@ -76,19 +75,11 @@ html, body {
     grid-template-columns: 1fr 1fr;
 }
 
-.cards {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 30px;
-}
-
 .heladeras-content {
-    /* height: 80%; */
+    height: 100%;
     display: flex;
     flex-direction: column;
-    padding: 0px 40px;
+    padding: 0 40px;
 }
 
 .heladeras h1 {
@@ -107,8 +98,9 @@ html, body {
 }
 
 #submitBtn {
-    margin: auto;
-    /* margin-bottom: 8px; */
+    /* margin: auto; */
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 .heladeras-footer {
@@ -183,11 +175,6 @@ button {
 button:disabled {
 
     background: #ccc;
-}
-
-#submitBtn {
-    margin-top: 0px;
-    margin-bottom: 0px;
 }
 
 @media (max-width: 768px) {
