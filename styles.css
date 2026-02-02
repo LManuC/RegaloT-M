@@ -42,9 +42,13 @@ html, body {
 .hotel-text {
     background: rgba(255, 255, 255, 0.85);
     padding: 30px;
-    margin: 30px;
+    margin: auto;
     border-radius: 12px;
-    max-width: 400px;
+}
+
+.hotel-text p {
+    margin-top: 10px;
+    line-height: 1.5;
 }
 
 .hotel-image {
@@ -62,8 +66,7 @@ html, body {
 .heladeras {
     display: flex;
     flex-direction: column;
-    /* background-size: contain;
-    background-color: #DBB394; */
+    background-color: #DBB394;
 
     padding: 0;
     position: relative;
@@ -94,7 +97,6 @@ html, body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    background-color: #DBB394; /* color de relleno */
 }
 
 #submitBtn {
@@ -179,7 +181,6 @@ button:disabled {
 
 @media (max-width: 768px) {
 
-    /* 1️⃣ Pasar de 2 columnas a stack vertical */
     .heladeras-grid {
         display: flex;
         flex-direction: column;
@@ -187,7 +188,6 @@ button:disabled {
         min-height: 100svh;
     }
 
-    /* 2️⃣ Imagen arriba */
     .heladeras-image {
         width: 100%;
         height: 35svh;
@@ -195,7 +195,6 @@ button:disabled {
         background-position: center;
     }
 
-    /* 3️⃣ Contenido abajo, sin centrado vertical */
     .heladeras-content {
         min-height: calc(100svh - 35svh);
         display: flex;
@@ -206,7 +205,6 @@ button:disabled {
         padding: 20px 15px;
     }
 
-    /* 4️⃣ Cards en columna */
     .cards {
         flex-direction: column;
         align-items: center;
@@ -220,7 +218,6 @@ button:disabled {
         height: 260px;
     }
 
-    /* 5️⃣ Botón natural, debajo de todo */
     #submitBtn {
         margin-top: auto;
         margin-bottom: 20px;
