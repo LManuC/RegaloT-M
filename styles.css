@@ -1,21 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    background: #fafafa;
-    text-align: center;
 }
+
+html, body {
+    height: 100%;
+}
+
+.page {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+
+.section {
+    min-height: 100svh;
+    width: 100%;
+    scroll-snap-align: start;
+}
+
+.section.heladeras {
+    height: 100vh;
+    overflow: hidden;
+}
+/* ====== HOTEL ====== */
 
 .hotel {
-    background: #f3e8ff;
-    padding: 30px;
+    display: flex;
+    align-items: flex-start;
+    background-image: url("img/hotel.jpg");
+    background-size: cover;
+    background-position: center;
 }
 
-.hotel h1 {
-    margin-bottom: 10px;
+.hotel-text {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 30px;
+    margin: 30px;
+    border-radius: 12px;
+    max-width: 400px;
 }
+
+.hotel-image {
+    flex: 1;
+}
+
+.hotel-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ====== HELADERAS ====== */
 
 .heladeras {
-    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    background-size: contain;
+    background-color: #DBB394; /* color tomado de la imagen */
+
+    padding: 0;
+    position: relative;
+}
+
+.heladeras-grid {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 .cards {
@@ -23,13 +81,55 @@ body {
     gap: 20px;
     justify-content: center;
     flex-wrap: wrap;
+    margin-top: 30px;
 }
+
+.heladeras-content {
+    /* height: 80%; */
+    display: flex;
+    flex-direction: column;
+    padding: 0px 40px;
+}
+
+.heladeras h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    /* margin-top: 20px; */
+}
+
+.heladeras-image {
+    background-image: url("img/heladeras.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-color: #DBB394; /* color de relleno */
+}
+
+#submitBtn {
+    margin: auto;
+    /* margin-bottom: 8px; */
+}
+
+.heladeras-footer {
+    text-align: center;
+    margin: 12px 0px;
+}
+/* ====== TARJETAS ====== */
 
 .card {
     width: 220px;
     height: 300px;
     perspective: 1000px;
     cursor: pointer;
+}
+
+.cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 30px 0;
 }
 
 .card-inner {
@@ -65,11 +165,12 @@ body {
     background: white;
     transform: rotateY(180deg);
     padding: 20px;
-    box-sizing: border-box;
 }
 
+/* ====== BOTÓN ====== */
+
 button {
-    margin-top: 30px;
+    margin: 30px auto 0;
     padding: 12px 30px;
     font-size: 16px;
     border: none;
@@ -80,6 +181,61 @@ button {
 }
 
 button:disabled {
+
     background: #ccc;
-    cursor: not-allowed;
+}
+
+#submitBtn {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+@media (max-width: 768px) {
+
+    /* 1️⃣ Pasar de 2 columnas a stack vertical */
+    .heladeras-grid {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        min-height: 100svh;
+    }
+
+    /* 2️⃣ Imagen arriba */
+    .heladeras-image {
+        width: 100%;
+        height: 35svh;
+        background-size: cover;
+        background-position: center;
+    }
+
+    /* 3️⃣ Contenido abajo, sin centrado vertical */
+    .heladeras-content {
+        min-height: calc(100svh - 35svh);
+        display: flex;
+        flex-direction: column;
+        flex: none;
+        height: 100%;
+        justify-content: flex-start;
+        padding: 20px 15px;
+    }
+
+    /* 4️⃣ Cards en columna */
+    .cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        margin: 20px 0;
+    }
+
+    .card {
+        width: 90%;
+        max-width: 320px;
+        height: 260px;
+    }
+
+    /* 5️⃣ Botón natural, debajo de todo */
+    #submitBtn {
+        margin-top: auto;
+        margin-bottom: 20px;
+    }
 }
