@@ -2,87 +2,93 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Un regalo especial ❤️</title>
+    <title>T y L</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <div class="page">
 
-        <section class="section hotel">
-            <div class="hotel-text">
-                <h1>Para que descansen en su noche de bodas</h1>
-                <p><strong>Hotel:</strong> Hotel Plaza Central Canning ⭐⭐⭐⭐⭐</p>
-                <p><strong>Fecha:</strong> 7 de marzo de 2026</p>
-                <p><strong>Habitación:</strong> Suite Deluxe</p>
-                <p><strong>Check-in:</strong> 22:00 hs</p>
-                <p><strong>Reservas:</strong> Tomas Marco y Luciana Maio</p>
-            </div>
-        </section>
-        
         <section class="section heladeras">
 
-            <h1>Elijan la heladera que más les guste</h1>
-        
+            <!-- <h1>Elijan la heladera que más les guste</h1>
+         -->
             <div class="heladeras-grid">
 
-                <div class="heladeras-image"></div>
+                <!-- <div class="heladeras-image"></div> -->
 
                 <div class="heladeras-content">
 
                     <div class="cards">
-                        <div class="card" data-value="Heladera Whirlpool 300L">
+                        <div class="card" data-value="Heladera Drean 300L">
                             <div class="card-inner">
                                 <div class="card-front">
-                                    <img src="img/heladera1.jpg" alt="Heladera Whirlpool">
+                                    <h3>Drean 300L</h3>
+                                    <img src="img/heladera1.jpg" alt="Heladera Drean 300L">
                                 </div>
-                                <div class="card-back">
-                                    <h3>Whirlpool 300L</h3>
-                                    <p>• No Frost</p>
-                                    <p>• Clase A+</p>
-                                    <p>• 300 litros</p>
+                                <div class="card-back" style="  background-image: url('img/heladera1_open.jpg');
+                                                                background-size: contain; 
+                                                                background-repeat: no-repeat; 
+                                                                background-position: center;
+                                                                opacity: 0.4;">
+                                    <p>No Frost</p>
+                                    <p>300 litros</p>
+                                    <p>Ancho: 60</p>
+                                    <p>Alto: 177</p>
+                                    <p>Profundidad: 67</p>
+                                    <p>Puertas no reversibles</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="card" data-value="Heladera Samsung 320L">
+                        <div class="card" data-value="Heladera BGH 338L">
                             <div class="card-inner">
                                 <div class="card-front">
-                                    <img src="img/heladera2.jpg" alt="Heladera Samsung">
+                                    <img src="img/heladera2.jpg" alt="Heladera BGH 338L">
                                 </div>
-                                <div class="card-back">
-                                    <h3>Samsung 320L</h3>
-                                    <p>• Digital Inverter</p>
-                                    <p>• No Frost</p>
-                                    <p>• 320 litros</p>
+                                <div class="card-back img-2">
+                                    <h3>BGH 338L</h3>
+                                    <p>No Frost</p>
+                                    <p>338 litros</p>
+                                    <p>Ancho: 59.5</p>
+                                    <p>Alto: 166.4</p>
+                                    <p>Profundidad: 64.4</p>
+                                    <p>Puertas no reversibles</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="card" data-value="Heladera Gafa 280L">
+                        <div class="card" data-value="Heladera Philco 281L">
                             <div class="card-inner">
                                 <div class="card-front">
-                                    <img src="img/heladera3.jpg" alt="Heladera Gafa">
+                                    <img src="img/heladera3.jpg" alt="Heladera Philco 281L">
                                 </div>
-                                <div class="card-back">
-                                    <h3>Gafa 280L</h3>
-                                    <p>• Eficiencia A</p>
-                                    <p>• Freezer superior</p>
-                                    <p>• 280 litros</p>
+                                <div class="card-back img-3">
+                                    <h3>Philco 281L</h3>
+                                    <p>No Frost</p>
+                                    <p>281 litros</p>
+                                    <p>Ancho: 55</p>
+                                    <p>Alto: 167</p>
+                                    <p>Profundidad: 55</p>
+                                    <p>Puertas no reversibles</p>
+                                    <p>Dispenser de agua</p>
                                 </div>
                             </div>
                         </div>
-    
-                        <div class="card" data-value="Otra heladera">
+
+                        <div class="card" data-value="Heladera Whirpool 340L">
                             <div class="card-inner">
                                 <div class="card-front">
-                                    <img src="img/heladera3.jpg" alt="Heladera Gafa">
+                                    <img src="img/heladera4.jpg" alt="Heladera Whirpool 340L">
                                 </div>
-                                <div class="card-back">
-                                    <h3>Otra heladera</h3>
-                                    <p>• No nos entra</p>
-                                    <p>• No nos gusta</p>
-                                    <p>• Es muy chiquita</p>
+                                <div class="card-back img-4">
+                                    <h3>Whirpool 340L</h3>
+                                    <p>No Frost</p>
+                                    <p>340 litros</p>
+                                    <p>Ancho: 62</p>
+                                    <p>Alto: 169</p>
+                                    <p>Profundidad: 71</p>
+                                    <p>Puertas no reversibles</p>
                                 </div>
                             </div>
                         </div>
@@ -91,16 +97,17 @@
             </div>
             
             <button id="submitBtn" disabled>Confirmar elección</button>
-
-            <div class="heladeras-footer">
-                <h2>Los queremos mucho y les deseamos lo mejor a esta nueva familia</h2>
-
-                <div class="gift-from">
-                    <paragraph>Agus, Anto, Augui, Cami T., Cami Z., Clari, Harry, Juli, Lule, Malen, Manu, Manolo, Mili, Nahue, Santi, Yas y Juli<span>&#128118;</span></paragraph>
-                </div>
-            </div>
         </section>
 
+        <section class="section hotel">
+            <div class="hotel-text">
+                <h1>Para que descansen después de la fiesta</h1>
+                <p><strong>Hotel:</strong> Hotel Plaza Central Canning ⭐⭐⭐⭐⭐</p>
+                <p><strong>Habitación:</strong> Suite Deluxe</p>
+                <p><strong>Check-in:</strong> 22:00 hs</p>
+                <p><strong>Reservas:</strong> Tomas Marco y Luciana Maio</p>
+            </div>
+        </section>
 
     <script src="script.js"></script>
     </div>
