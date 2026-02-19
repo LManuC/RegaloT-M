@@ -14,22 +14,18 @@ html, body {
 }
 
 .page {
-    height: 100vh;
-    overflow-y: scroll;
+    height: 95vh;
+    overflow-y: visible;
     scroll-snap-type: y mandatory;
 }
 
 
 .section {
-    min-height: 100svh;
+    height: 95svh;
     width: 100%;
     scroll-snap-align: start;
 }
 
-.section.heladeras {
-    height: 100vh;
-    overflow: hidden;
-}
 /* ====== HOTEL ====== */
 
 .hotel {
@@ -38,14 +34,20 @@ html, body {
     background-image: url("img/hotel.jpg");
     background-size: cover;
     background-position: center;
+    opacity: 0.6;
 }
 
 .hotel-text {
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.75);
     padding: 30px;
-    margin: 30px;
+    margin: auto;
     border-radius: 12px;
-    max-width: 400px;
+}
+
+.hotel-text p {
+    margin-top: 10px;
+    opacity: 1;
+    line-height: 1.5;
 }
 
 .hotel-image {
@@ -63,32 +65,24 @@ html, body {
 .heladeras {
     display: flex;
     flex-direction: column;
-    background-size: contain;
-    background-color: #DBB394; /* color tomado de la imagen */
+    background-color: #DBB394;
 
     padding: 0;
     position: relative;
 }
 
 .heladeras-grid {
-    height: 100%;
+    height: 60%;
+    padding: 20px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
-.cards {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 30px;
+    /* grid-template-columns: 1fr 1fr; */
 }
 
 .heladeras-content {
-    /* height: 80%; */
+    height: 90%;
     display: flex;
     flex-direction: column;
-    padding: 0px 40px;
+    padding: 0 0px;
 }
 
 .heladeras h1 {
@@ -98,17 +92,16 @@ html, body {
     /* margin-top: 20px; */
 }
 
-.heladeras-image {
-    background-image: url("img/heladeras.jpg");
+.thanks {
+    background-image: url("img/TyL.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    background-color: #DBB394; /* color de relleno */
 }
 
 #submitBtn {
-    margin: auto;
-    /* margin-bottom: 8px; */
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 .heladeras-footer {
@@ -151,13 +144,15 @@ html, body {
     height: 100%;
     backface-visibility: hidden;
     border-radius: 12px;
+    background-color: #FFFFFF;
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 .card-front img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    background-color: #FFFFFF;
     border-radius: 12px;
 }
 
@@ -166,6 +161,52 @@ html, body {
     transform: rotateY(180deg);
     padding: 20px;
 }
+
+.card-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  background-color: #FFFFFF;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.card-back::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.35;
+  z-index: 0;
+}
+
+.card-back > * {
+  position: relative;
+  padding: auto;
+  z-index: 1;
+}
+
+.card-front h3 {
+  text-align: center;
+  padding: 5px;
+  /* margin-bottom: 20px; */
+}
+
+.card-back p {
+  text-align: center;
+  z-index: 1;
+  opacity: 1;
+}
+
+/* 4) Asignación de imagen por tarjeta (la ponemos en el ::before) */
+.card-back.img-1::before { background-image: url('img/heladera1_open.jpg'); }
+.card-back.img-2::before { background-image: url('img/heladera2_open.jpg'); }
+.card-back.img-3::before { background-image: url('img/heladera3_open.jpg'); }
+.card-back.img-4::before { background-image: url('img/heladera4_open.jpg'); }
 
 /* ====== BOTÓN ====== */
 
@@ -185,14 +226,8 @@ button:disabled {
     background: #ccc;
 }
 
-#submitBtn {
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-
 @media (max-width: 768px) {
 
-    /* 1️⃣ Pasar de 2 columnas a stack vertical */
     .heladeras-grid {
         display: flex;
         flex-direction: column;
@@ -200,7 +235,6 @@ button:disabled {
         min-height: 100svh;
     }
 
-    /* 2️⃣ Imagen arriba */
     .heladeras-image {
         width: 100%;
         height: 35svh;
@@ -208,7 +242,6 @@ button:disabled {
         background-position: center;
     }
 
-    /* 3️⃣ Contenido abajo, sin centrado vertical */
     .heladeras-content {
         min-height: calc(100svh - 35svh);
         display: flex;
@@ -219,7 +252,6 @@ button:disabled {
         padding: 20px 15px;
     }
 
-    /* 4️⃣ Cards en columna */
     .cards {
         flex-direction: column;
         align-items: center;
@@ -233,7 +265,6 @@ button:disabled {
         height: 260px;
     }
 
-    /* 5️⃣ Botón natural, debajo de todo */
     #submitBtn {
         margin-top: auto;
         margin-bottom: 20px;
