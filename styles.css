@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Garamond, "Trebuchet MS", Verdana; /*, sans-serif;*/
 }
 
 body {
@@ -19,7 +20,6 @@ html, body {
     scroll-snap-type: y mandatory;
 }
 
-
 .section {
     height: 95svh;
     width: 100%;
@@ -32,32 +32,10 @@ html, body {
     display: flex;
     align-items: flex-start;
     background-image: url("img/hotel.jpg");
-    background-size: cover;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
     background-position: center;
-    opacity: 0.6;
-}
-
-.hotel-text {
-    background: rgba(255, 255, 255, 0.75);
-    padding: 30px;
-    margin: auto;
-    border-radius: 12px;
-}
-
-.hotel-text p {
-    margin-top: 10px;
-    opacity: 1;
-    line-height: 1.5;
-}
-
-.hotel-image {
-    flex: 1;
-}
-
-.hotel-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    background-color: #F1DBD0;
 }
 
 /* ====== HELADERAS ====== */
@@ -65,15 +43,14 @@ html, body {
 .heladeras {
     display: flex;
     flex-direction: column;
-    background-color: #DBB394;
-
+    background-color: #F1DBD0;
     padding: 0;
     position: relative;
 }
 
 .heladeras-grid {
-    height: 60%;
-    padding: 20px;
+    height: 70%;
+    padding: 0px 20px;
     display: grid;
     /* grid-template-columns: 1fr 1fr; */
 }
@@ -93,21 +70,52 @@ html, body {
 }
 
 .thanks {
-    background-image: url("img/TyL.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+    height: 100vh;
+    background-color: #DCB494;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* reparte arriba/medio/abajo */
+    text-align: center;
+
+    padding: 24px 16px; /* espacio interno */
+}
+
+.thanks h1 {
+    margin-top: auto;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.thanks_img {
+    flex: 1;                      /* ✅ toma el espacio del medio */
+    display: flex;
+    align-items: center;          /* ✅ centra verticalmente la imagen */
+    justify-content: center;      /* ✅ centra horizontalmente */
+    width: 100%;
+    min-height: 0;                /* ✅ evita overflow raro en flex */
+}
+
+.thanks_img img {
+    max-width: min(900px, 90%);   /* limite lindo en desktop */
+    max-height: 80vh;             /* controla altura */
+    height: auto;
+    width: auto;
+    object-fit: contain;
+}
+
+.thanks p {
+    margin-top: 20px;
+    margin-bottom: auto;
+    font-size: 1.7rem;
 }
 
 #submitBtn {
-    margin-top: 0px;
-    margin-bottom: 0px;
+    margin-top: auto;
+    margin-bottom: 40px;
 }
 
-.heladeras-footer {
-    text-align: center;
-    margin: 12px 0px;
-}
 /* ====== TARJETAS ====== */
 
 .card {
@@ -115,6 +123,16 @@ html, body {
     height: 300px;
     perspective: 1000px;
     cursor: pointer;
+    margin: 15px;
+}
+
+.card h3 {
+    text-align: center;
+    border-radius: 12px 12px 0px 0px;
+    /* border-color: #000000; */
+    border-bottom: 1px solid #000000;
+    background-color: #FFFFFF;
+    padding: 5px;
 }
 
 .cards {
@@ -122,7 +140,7 @@ html, body {
     gap: 20px;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 30px 0;
+    margin: auto;
 }
 
 .card-inner {
@@ -143,7 +161,7 @@ html, body {
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    border-radius: 12px;
+    border-radius: 0px 0px 12px 12px;
     background-color: #FFFFFF;
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
@@ -153,7 +171,7 @@ html, body {
     height: 100%;
     object-fit: contain;
     background-color: #FFFFFF;
-    border-radius: 12px;
+    border-radius: 0px 0px 12px 12px;
 }
 
 .card-back {
@@ -163,12 +181,12 @@ html, body {
 }
 
 .card-back {
-  position: absolute;
-  inset: 0;
-  border-radius: 12px;
-  background-color: #FFFFFF;
-  overflow: hidden;
-  padding: 20px;
+    position: absolute;
+    inset: 0;
+    border-radius: 0px 0px 12px 12px;
+    background-color: #FFFFFF;
+    overflow: hidden;
+    padding: 20px;
 }
 
 .card-back::before {
@@ -185,21 +203,18 @@ html, body {
 }
 
 .card-back > * {
-  position: relative;
-  padding: auto;
-  z-index: 1;
-}
-
-.card-front h3 {
-  text-align: center;
-  padding: 5px;
-  /* margin-bottom: 20px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    height: 15%;
+    z-index: 1;
 }
 
 .card-back p {
-  text-align: center;
-  z-index: 1;
-  opacity: 1;
+    text-align: center;
+    font-size: large;
+    z-index: 1;
 }
 
 /* 4) Asignación de imagen por tarjeta (la ponemos en el ::before) */
@@ -207,6 +222,7 @@ html, body {
 .card-back.img-2::before { background-image: url('img/heladera2_open.jpg'); }
 .card-back.img-3::before { background-image: url('img/heladera3_open.jpg'); }
 .card-back.img-4::before { background-image: url('img/heladera4_open.jpg'); }
+.card-back.img-5::before { background-image: url('img/heladera5_open.jpg'); }
 
 /* ====== BOTÓN ====== */
 

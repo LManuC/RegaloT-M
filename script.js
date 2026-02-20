@@ -1,5 +1,6 @@
 const cards = document.querySelectorAll('.card');
 const submitBtn = document.getElementById('submitBtn');
+const textsubmitBtn = document.getElementById('textsubmitBtn');
 
 let selectedValue = null;
 
@@ -10,36 +11,27 @@ cards.forEach(card => {
         if (selectedValue === card.dataset.value) {
             card.classList.remove('flipped');
             selectedValue = null;
-            submitBtn.disabled = true;
+            submitBtn.textContent = "Elegir otra heladera";
         } else {
             cards.forEach(c => c.classList.remove('flipped'));
             card.classList.add('flipped');
             selectedValue = card.dataset.value;
-            submitBtn.disabled = false;
+            submitBtn.textContent = "Confirmar elección";
         }
     });
 });
 
 submitBtn.addEventListener('click', () => {
-    if (!selectedValue) return;
+    message = '';
 
-    const subject = encodeURIComponent("Elección de heladera");
-    const body = encodeURIComponent(
-        `Hola!\n\nLa heladera elegida es:\n\n${selectedValue}\n\n¡Gracias!`
-    );
+    if (!selectedValue) {
+        message = `Queremos la heladera: ...`;
+    } else {
+        message = `La heladera elegida es:\n\n*${selectedValue}*`;
+    }
 
-    window.location.href = `mailto:lmanuelcarra@gmail.com?subject=${subject}&body=${body}`;
-
-    const subject2 = encodeURIComponent("Reserva de hotel");
-    const body2 = encodeURIComponent(
-        `Para que descansen después de la fiesta\n\n` +
-                `Hotel: Hotel Plaza Central Canning ⭐⭐⭐⭐⭐\n\n` +
-                `Habitación: Suite Deluxe\n\n` +
-                `Check-in: 22:00 hs\n\n` +
-                `Reservas: Tomas Marco y Luciana Maio\n\n`
-    );
-
-    window.location.href = `mailto:lmanuelcarra@gmail.com?subject=${subject2}&body=${body2}`;
-
-    window.location.href = `./dedicatoria.html`;
+    const url = `https://wa.me/5491159929089?text=${encodeURIComponent(message)}`;
+    
+    window.open(url, 'blank');
+    window.open('./dedicatoria.html', '_self');
 });
