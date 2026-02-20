@@ -269,7 +269,7 @@ button:hover {
 @media (max-width: 768px) {
 
     .thanks {
-        height: 90svh;
+        height: 100svh;   /* viewport real sin barra */
         overflow: hidden;
     }
 
